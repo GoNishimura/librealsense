@@ -2,6 +2,7 @@
 This is a setup guide for Realsense with RaspberryPi
 
 These steps are for D435 with Raspberry Pi3 and 3+.  
+(Also tested on T265 with Raspberry Pi3)
 
 ### Check versions
 ```
@@ -32,6 +33,11 @@ $ sudo /etc/init.d/dphys-swapfile restart swapon -s
 
 ### Install packages
 ```
+$ sudo apt-get install autoconf automake libtool curl make g++ unzip
+$ sudo apt-get install -y libusb-1.0-0-dev
+$ sudo apt-get install -y xorg-dev libglu1-mesa-dev
+$ sudo apt-get install -y gtk+-3.0
+
 $ sudo apt-get install -y libdrm-amdgpu1 libdrm-amdgpu1-dbg libdrm-dev libdrm-exynos1 libdrm-exynos1-dbg libdrm-freedreno1 libdrm-freedreno1-dbg libdrm-nouveau2 libdrm-nouveau2-dbg libdrm-omap1 libdrm-omap1-dbg libdrm-radeon1 libdrm-radeon1-dbg libdrm-tegra0 libdrm-tegra0-dbg libdrm2 libdrm2-dbg
 
 $ sudo apt-get install -y libglu1-mesa libglu1-mesa-dev glusterfs-common libglu1-mesa libglu1-mesa-dev libglui-dev libglui2c2
@@ -75,11 +81,11 @@ $ source ~/.zshrc
 
 ```
 
-### install `protobu`
+### install `protobuf`
 ```
 $ cd ~
 $ git clone --depth=1 -b v3.5.1 https://github.com/google/protobuf.git
-$ cd protbuf
+$ cd protobuf
 $ ./autogen.sh
 $ ./configure
 $ make -j1
